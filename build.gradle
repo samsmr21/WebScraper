@@ -13,5 +13,11 @@ repositories {
 
 dependencies {
     compile 'org.jsoup:jsoup:1.11.3'
+    implementation 'commons-validator:commons-validator:1.4.0'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
     testImplementation 'junit:junit:4.13'
+    testCompile "org.assertj:assertj-core:3.11.1"
+    testCompile "org.mockito:mockito-core:2.1.0"
 }
