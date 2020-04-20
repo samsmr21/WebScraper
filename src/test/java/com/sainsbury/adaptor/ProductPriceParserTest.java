@@ -36,22 +36,20 @@ public class ProductPriceParserTest {
     }
 
     private void givenAnInvalidInput() {
-        StringBuffer html = new StringBuffer();
-        html.append("<div class=\"priceTab priceTabContainer activeContainer addItem\" id=\"addItem_124183\"> " );
-        html.append("<div class=\"pricing\"> ");
-        html.append("<p class=\"price\"> £1.75<abbr title=\"per\">/</abbr><abbr title=\"unit\"><span class=\"pricePerUnitUnit\">unit</span></abbr> </p> ");
-        html.append("<p class=\"pricePerMeasure\">£4.38<abbr title=\"per\">/</abbr><abbr title=\"kilogram\"><span class=\"pricePerMeasureMeasure\">kg</span></abbr> </p> ");
-        html.append("</div> </div>");
-        input = Jsoup.parse(html.toString());
+        String html = "<div class=\"priceTab priceTabContainer activeContainer addItem\" id=\"addItem_124183\"> "
+                +"<div class=\"pricing\"> "
+                +"<p class=\"price\"> £1.75<abbr title=\"per\">/</abbr><abbr title=\"unit\"><span class=\"pricePerUnitUnit\">unit</span></abbr> </p> "
+                +"<p class=\"pricePerMeasure\">£4.38<abbr title=\"per\">/</abbr><abbr title=\"kilogram\"><span class=\"pricePerMeasureMeasure\">kg</span></abbr> </p> "
+                +"</div> </div>";
+        input = Jsoup.parse(html);
     }
 
     private void givenAValidInput() {
-        StringBuffer html = new StringBuffer();
-        html.append("<div class=\"priceTab priceTabContainer activeContainer addItem\" id=\"addItem_124183\"> " );
-        html.append("<div class=\"pricing\"> ");
-        html.append("<p class=\"pricePerUnit\"> £1.75<abbr title=\"per\">/</abbr><abbr title=\"unit\"><span class=\"pricePerUnitUnit\">unit</span></abbr> </p> ");
-        html.append("<p class=\"pricePerMeasure\">£4.38<abbr title=\"per\">/</abbr><abbr title=\"kilogram\"><span class=\"pricePerMeasureMeasure\">kg</span></abbr> </p> ");
-        html.append("</div> </div>");
-        input = Jsoup.parse(html.toString());
+        String html = "<div class=\"priceTab priceTabContainer activeContainer addItem\" id=\"addItem_124183\"> "
+                +"<div class=\"pricing\"> "
+                +"<p class=\"pricePerUnit\"> £1.75<abbr title=\"per\">/</abbr><abbr title=\"unit\"><span class=\"pricePerUnitUnit\">unit</span></abbr> </p> "
+                +"<p class=\"pricePerMeasure\">£4.38<abbr title=\"per\">/</abbr><abbr title=\"kilogram\"><span class=\"pricePerMeasureMeasure\">kg</span></abbr> </p> "
+                +"</div> </div>";
+        input = Jsoup.parse(html);
     }
 }

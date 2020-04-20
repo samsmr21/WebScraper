@@ -46,20 +46,17 @@ public class ProductTitleParserTest {
     }
 
     private void givenAValidInput(String title) {
-        StringBuffer html = new StringBuffer();
-        html.append("<div class=\"product \"> <div class=\"productInfo\"> <div class=\"productNameAndPromotions\">\n ");
-        html.append("<h3> <a href=\"productpageurl\"> " + title + "\n");
-        html.append("<img src=\"imageurl\" alt=\"\"> </a> </h3></div> </div>");
-        input = Jsoup.parse(html.toString());
+        String html =  "<div class=\"product \"> <div class=\"productInfo\"> <div class=\"productNameAndPromotions\">\n "
+                +"<h3> <a href=\"productpageurl\"> " + title + "\n"
+                +"<img src=\"imageurl\" alt=\"\"> </a> </h3></div> </div>";
+        input = Jsoup.parse(html);
     }
 
     private void givenAnInvalidInput() {
-        StringBuffer html = new StringBuffer();
-        html.append("<div class=\"product \"> <div class=\"productInfo\"> <div class=\"productNameAndPromotions\">\n ");
-        html.append("<h3> <p> random product title </p>");
-        html.append("<img src=\"imageurl\" alt=\"\"> </h3></div> </div>");
-        input = Jsoup.parse(html.toString());
-        input = Jsoup.parse(html.toString());
+        String html = "<div class=\"product \"> <div class=\"productInfo\"> <div class=\"productNameAndPromotions\">\n "
+                +"<h3> <p> random product title </p>"
+                +"<img src=\"imageurl\" alt=\"\"> </h3></div> </div>";
+        input = Jsoup.parse(html);
     }
 
 }

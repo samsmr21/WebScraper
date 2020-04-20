@@ -30,7 +30,7 @@ public class ProductNutritionInfoParserTest {
 
     @Test
     public void shouldReturnNutritionValueWhenTableWithDoubleRow() {
-        givenAValidInputWithSingleSpanRow();
+        givenAValidInputWithDoubleSpanRow();
 
         Double nutritionValue = productNutritionInfoParser.getProductNutritionValue(input);
 

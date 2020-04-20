@@ -22,6 +22,7 @@ public class ProductDescriptionParserTest {
     @Test
     public void shouldReturnProductDescriptionWhenInputInCorrectFormat() {
         givenAValidInput();
+
         String productDescription = productDescriptionParser.getProductDescription(input);
 
         assertThat(productDescription).isEqualTo(PRODUCT_DESCRIPTION);
@@ -35,19 +36,17 @@ public class ProductDescriptionParserTest {
     }
 
     private void givenAValidInput() {
-        StringBuilder html = new StringBuilder();
-        html.append("<h3 class=\"productDataItemHeader\">Description</h3>\n");
-        html.append("<div class=\"productText\"> <p>" + PRODUCT_DESCRIPTION + "</p>\n");
-        html.append("<p></p><p></p><p></p></div>");
-        input = Jsoup.parse(html.toString());
+        String html = "<h3 class=\"productDataItemHeader\">Description</h3>\n"
+                + "<div class=\"productText\"> <p>" + PRODUCT_DESCRIPTION + "</p>\n"
+                + "<p></p><p></p><p></p></div>";
+        input = Jsoup.parse(html);
     }
 
     private void givenAnInvalidInput() {
-        StringBuilder html = new StringBuilder();
-        html.append("<h3 class=\"productDataItemHeader\">Description</h3>\n");
-        html.append("<div class=\"productTextIncorrectFormat\"> <p>" + PRODUCT_DESCRIPTION + "</p>\n");
-        html.append("<p></p><p></p><p></p></div>");
-        input = Jsoup.parse(html.toString());
+        String html = "<h3 class=\"productDataItemHeader\">Description</h3>\n"
+                + "<div class=\"productTextIncorrectFormat\"> <p>" + PRODUCT_DESCRIPTION + "</p>\n"
+                + "<p></p><p></p><p></p></div>";
+        input = Jsoup.parse(html);
     }
 
 }

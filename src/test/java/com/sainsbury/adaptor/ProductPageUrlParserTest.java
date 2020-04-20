@@ -42,7 +42,7 @@ public class ProductPageUrlParserTest {
                 "<h3>\n" +
                 "<a href=\"" + PRODUCT_PAGE_URL + "\">\n" +
                 "Sainsbury's Blueberries 400g\n" +
-                "<img src=\"../../../../../../../c2.sainsburys.co.uk/wcsstore7.23.1.52/ExtendedSitesCatalogAssetStore/images/catalog/productImages/74/0000001835274/0000001835274_L.jpg\" alt=\"\">\n" +
+                "<img src=\"images/catalog/productImages/nice_product.jpg\" alt=\"\">\n" +
                 "</a></h3></div></div>";
         input = Jsoup.parse(html);
     }
@@ -53,7 +53,7 @@ public class ProductPageUrlParserTest {
                 "<div class=\"productNameAndPromotions\">\n" +
                 "<h3> <div>\n" +
                 "Sainsbury's Blueberries 400g\n" +
-                "<img src=\"../../../../../../../c2.sainsburys.co.uk/wcsstore7.23.1.52/ExtendedSitesCatalogAssetStore/images/catalog/productImages/74/0000001835274/0000001835274_L.jpg\" alt=\"\">\n" +
+                "<img src=\"images/catalog/productImages/nice_product.jpg\" alt=\"\">\n" +
                 "</div></h3></div></div>";
         input = Jsoup.parse(html);
     }
