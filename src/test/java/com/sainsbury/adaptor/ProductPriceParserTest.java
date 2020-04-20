@@ -30,12 +30,12 @@ public class ProductPriceParserTest {
 
     @Test(expected = ProductParsingException.class)
     public void shouldThrowAParsingExceptionWhenInputFormatIsWrong() {
-        givenAnValidInput();
+        givenAnInvalidInput();
 
         productPriceParser.getProductPrice(input);
     }
 
-    private void givenAnValidInput() {
+    private void givenAnInvalidInput() {
         StringBuffer html = new StringBuffer();
         html.append("<div class=\"priceTab priceTabContainer activeContainer addItem\" id=\"addItem_124183\"> " );
         html.append("<div class=\"pricing\"> ");
