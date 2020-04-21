@@ -10,8 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProductTitleParserTest {
 
-    public static final String SINGLE_LINE_PRODUCT_TITLE = "Sainsbury's Raspberries 225g";
-    public static final String DOUBLE_LINE_PRODUCT_TITLE = "Sainsbury's Raspberries, Taste the Difference 150g";
+    public static final String TEST_PRODUCT_TITLE = "Sainsbury's Raspberries, Taste the Difference 150g";
     private Element input;
     private ProductTitleParser productTitleParser;
 
@@ -22,20 +21,11 @@ public class ProductTitleParserTest {
 
     @Test
     public void shouldReturnTitleWhenInputInCorrectFormat() {
-        givenAValidInput(SINGLE_LINE_PRODUCT_TITLE);
+        givenAValidInput(TEST_PRODUCT_TITLE);
 
         String productTitle = productTitleParser.getProductTitle(input);
 
-        assertThat(productTitle).isEqualTo("Sainsbury's Raspberries 225g");
-    }
-
-    @Test
-    public void shouldReturnOnlyFirstLineWhenMultiLineTitle() {
-        givenAValidInput(DOUBLE_LINE_PRODUCT_TITLE);
-
-        String productTitle = productTitleParser.getProductTitle(input);
-
-        assertThat(productTitle).isEqualTo("Sainsbury's Raspberries");
+        assertThat(productTitle).isEqualTo("Sainsbury's Raspberries, Taste the Difference 150g");
     }
 
     @Test(expected = ProductParsingException.class)
