@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.sainsbury'
-version = '0.0.1-SNAPSHOT'
+version = '1.0'
 
 repositories {
     mavenCentral()
@@ -15,6 +15,18 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 mainClassName = "com.sainsbury.Application"
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.sainsbury.Application'
+    }
+    archiveClassifier = "all"
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
 
 dependencies {
     compile 'org.jsoup:jsoup:1.11.3'
