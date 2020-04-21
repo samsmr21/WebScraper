@@ -28,6 +28,14 @@ public class ProductPriceParserTest {
         assertThat(pricePerUnit).isEqualTo(BigDecimal.valueOf(1.75));
     }
 
+    @Test
+    public void shouldReturnPriceWithTwoDecimalPlaces() {
+        givenAnInvalidInputWithDecimalPlacesOverTwo();
+        BigDecimal pricePerUnit = productPriceParser.getProductPrice(input);
+
+        assertThat(pricePerUnit).isEqualTo(BigDecimal.valueOf(1.75));
+    }
+
     @Test(expected = ProductParsingException.class)
     public void shouldThrowAParsingExceptionWhenInputFormatIsWrong() {
         givenAnInvalidInput();
@@ -39,6 +47,15 @@ public class ProductPriceParserTest {
         String html = "<div class=\"priceTab priceTabContainer activeContainer addItem\" id=\"addItem_124183\"> "
                 +"<div class=\"pricing\"> "
                 +"<p class=\"price\"> £1.75<abbr title=\"per\">/</abbr><abbr title=\"unit\"><span class=\"pricePerUnitUnit\">unit</span></abbr> </p> "
+                +"<p class=\"pricePerMeasure\">£4.38<abbr title=\"per\">/</abbr><abbr title=\"kilogram\"><span class=\"pricePerMeasureMeasure\">kg</span></abbr> </p> "
+                +"</div> </div>";
+        input = Jsoup.parse(html);
+    }
+
+    private void givenAnInvalidInputWithDecimalPlacesOverTwo() {
+        String html = "<div class=\"priceTab priceTabContainer activeContainer addItem\" id=\"addItem_124183\"> "
+                +"<div class=\"pricing\"> "
+                +"<p class=\"pricePerUnit\"> £1.75678<abbr title=\"per\">/</abbr><abbr title=\"unit\"><span class=\"pricePerUnitUnit\">unit</span></abbr> </p> "
                 +"<p class=\"pricePerMeasure\">£4.38<abbr title=\"per\">/</abbr><abbr title=\"kilogram\"><span class=\"pricePerMeasureMeasure\">kg</span></abbr> </p> "
                 +"</div> </div>";
         input = Jsoup.parse(html);
