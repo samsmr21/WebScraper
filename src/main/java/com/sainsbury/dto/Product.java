@@ -15,7 +15,7 @@ public class Product {
     private String title;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Double kcalPer100g;
+    private Integer kcalPer100g;
 
     private BigDecimal unitPrice;
 

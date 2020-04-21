@@ -13,7 +13,7 @@ import static org.mockito.Mockito.when;
 public class ProductPageInfoBuilderTest {
 
     public static final String TEST_PRODUCT_DESCRIPTION = "Test product description";
-    public static final double NUTRITION_VALUE = 33.5;
+    public static final Integer NUTRITION_VALUE = 33;
     private ProductDescriptionParser productDescriptionParser = mock(ProductDescriptionParser.class);
     private ProductNutritionInfoParser productNutritionInfoParser = mock(ProductNutritionInfoParser.class);
 

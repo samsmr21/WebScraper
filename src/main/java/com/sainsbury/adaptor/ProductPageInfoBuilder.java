@@ -2,7 +2,7 @@ package com.sainsbury.adaptor;
 
 import com.sainsbury.domain.ProductPageInfo;
 import lombok.AllArgsConstructor;
-import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 @AllArgsConstructor
 public class ProductPageInfoBuilder {
@@ -10,7 +10,7 @@ public class ProductPageInfoBuilder {
     private final ProductDescriptionParser productDescriptionParser;
     private final ProductNutritionInfoParser productNutritionInfoParser;
 
-    public ProductPageInfo buildProductPageInfo(Document productPageDocument) {
+    public ProductPageInfo buildProductPageInfo(Element productPageDocument) {
 
         return ProductPageInfo
                 .builder()

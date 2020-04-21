@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 public class ProductPageInfo {
 
-    private Double kcalPer100g;
+    private Integer kcalPer100g;
 
     private String description;
 }

@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProductNutritionInfoParserTest {
 
-    public static final String NUTRITION_VALUE = "33.5";
+    public static final String NUTRITION_VALUE = "33";
     private Document input;
     private ProductNutritionInfoParser productNutritionInfoParser;
 
@@ -23,25 +23,25 @@ public class ProductNutritionInfoParserTest {
     public void shouldReturnNutritionValueWhenTableWithSingleRow() {
         givenAValidInputWithSingleSpanRow();
 
-        Double nutritionValue = productNutritionInfoParser.getProductNutritionValue(input);
+        Integer nutritionValue = productNutritionInfoParser.getProductNutritionValue(input);
 
-        assertThat(nutritionValue).isEqualTo(Double.parseDouble(NUTRITION_VALUE));
+        assertThat(nutritionValue).isEqualTo(Integer.parseInt(NUTRITION_VALUE));
     }
 
     @Test
     public void shouldReturnNutritionValueWhenTableWithDoubleRow() {
         givenAValidInputWithDoubleSpanRow();
 
-        Double nutritionValue = productNutritionInfoParser.getProductNutritionValue(input);
+        Integer nutritionValue = productNutritionInfoParser.getProductNutritionValue(input);
 
-        assertThat(nutritionValue).isEqualTo(Double.parseDouble(NUTRITION_VALUE));
+        assertThat(nutritionValue).isEqualTo(Integer.parseInt(NUTRITION_VALUE));
     }
 
     @Test
     public void shouldReturnNullNutritionValueWhenNoTableFound() {
         givenInputWithoutNutritionTable();
 
-        Double nutritionValue = productNutritionInfoParser.getProductNutritionValue(input);
+        Integer nutritionValue = productNutritionInfoParser.getProductNutritionValue(input);
 
         assertThat(nutritionValue).isNull();
     }

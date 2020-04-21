@@ -1,13 +1,12 @@
 package com.sainsbury.adaptor;
 
 import com.sainsbury.exceptions.ProductParsingException;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class ProductNutritionInfoParser {
 
-    public Double getProductNutritionValue(Document productPageDocument) {
+    public Integer getProductNutritionValue(Element productPageDocument) {
         try {
             Elements tables =  productPageDocument.select("table.nutritionTable");
             if (tables.size() > 0) {
@@ -27,7 +26,7 @@ public class ProductNutritionInfoParser {
         }
     }
 
-    private Double valueFromSingleRow(Element row) {
-        return Double.parseDouble(row.select("td").first().text().replaceAll("[^0-9, ^.]", ""));
+    private Integer valueFromSingleRow(Element row) {
+        return Integer.parseInt(row.select("td").first().text().replaceAll("[^0-9, ^.]", ""));
     }
 }

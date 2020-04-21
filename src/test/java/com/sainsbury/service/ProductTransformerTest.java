@@ -15,7 +15,7 @@ public class ProductTransformerTest {
     public static final String TEST_PRODUCT_TITLE = "Test product title";
     public static final String TEST_PRODUCT_DESCRIPTION = "Test product description";
     public static final BigDecimal UNIT_PRICE = BigDecimal.valueOf(22.7);
-    public static final Double NUTRITION_VALUE = 35d;
+    public static final Integer NUTRITION_VALUE = 35;
     private ProductTransformer productTransformer;
 
     private ProductInfo productInfo;
