@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 
 @Builder
 @Getter
-@Setter
 public class ProductInfo {
 
     private String title;
@@ -17,5 +16,6 @@ public class ProductInfo {
 
     private String productPageUrl;
 
+    @Setter
     private ProductPageInfo productPageInfo;
 }
