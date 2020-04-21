@@ -1,16 +1,20 @@
+
 plugins {
     id 'java'
     id 'io.franzbecker.gradle-lombok' version '2.1'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.8
+group = 'com.sainsbury'
+version = '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "com.sainsbury.Application"
 
 dependencies {
     compile 'org.jsoup:jsoup:1.11.3'
